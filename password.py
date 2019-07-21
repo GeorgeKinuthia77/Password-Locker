@@ -61,3 +61,13 @@ class user :
     def copy_paswad(cls, account):
         user_found = User.find_by_account(account)
         pyperclip.copy(user_found.username)
+
+
+class Credentials:
+    # user_list = []
+    '''
+    Class credentials to store credentials for the users
+    '''
+    def __init__(self, account, password):
+        self.paswad = paswad
+        self.account = account
