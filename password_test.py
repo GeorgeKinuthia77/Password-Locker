@@ -23,3 +23,27 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.username, "GeorgeKinuthia77")
         self.assertEqual(self.new_user.account, "Instagram")
         self.assertEqual(self.new_user.password, "ptex")
+
+        def test_save_user(self):
+        '''
+        test_save_user test case to test if the user object is saved to the user_list
+        '''
+        self.new_user.save_user()
+        self.assertEqual(len(User.user_list),1)
+
+
+    def tearDown(self):
+        '''
+        tearDown does clear up after each test case has run
+        '''
+        User.user_list = []
+
+    def test_save_multiple_users(self):
+        '''
+        test_save_multiple_users to check if we can save multiple users in our user_list
+        '''
+
+        self.new_user.save_user()
+        test_user = User("John Wick", "Facebook", "ptex")
+        test_user.save_user()
+        self.assertEqual(len(User.user_list),2)
