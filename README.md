@@ -9,6 +9,8 @@ George Kinuthia(21/7/2019)
 
 Git hub:https://github.com/GeorgeKinuthia77/Password-Locker
 
+Live link:https://georgekinuthia77.github.io/Password-Locker/
+
 ## Technologies used
 
 Python 3.6
