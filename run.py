@@ -99,8 +99,78 @@ def main():
                                 pass_choice = input().lower()
 
                                 if pass_choice == 'c':
-                                    print("Enter a password here..")
+                                    print("Enter your  password here..")
                                     custom_pass = input()
 
                                     gene=custom_pass
-        
+                               elif pass_choice == 'g':
+                                    print("Here'your password  hope it will is suitable for you...")
+                                    print('\n')
+                                    print(generate_password())
+                                    gene= generate_password()
+
+                                if account == '' or username == '' or pass_choice == '':
+                                    print("Failed, username or password not found")
+                                    print('\n')
+
+                                else:
+                                    save_user(create_user(username, account,gene)) # create and save new account.
+                                    # save_user(create_user(username,account,custom_pass))
+
+                                    print ('\n')
+                                    print(f"New Credentials for {account} created")
+                                    print ('\n')
+                                break
+
+                                elif short_code == 'del':
+                        print("Enter Account name to be deleted")
+                        deli_user = input()
+                        if check_existing_user(deli_user):
+                            search_account = find_user(deli_user)
+                            del_user(search_account)
+                            print(f"{search_account.account} account credentials have been successfully deleted")
+
+                    elif short_code == 'dc':
+
+                            if display_users():
+                                    print("Here is a list of all your account credentials")
+                                    print('\n')
+
+                                    for user in display_users():
+                                            print(f"Username:....{user.username}")
+                                            print(f"password:....{user.password}")
+                                            print(f" Account name: .....{user.account}")
+
+                                    print('\n')
+                            else:
+                                    print('\n')
+                                    print("Please create an account first.")
+                                    print('\n')
+
+                    elif short_code == 'fc':
+
+                            print("Search for account")
+
+                            search_account = input()
+                            if check_existing_user(search_account):
+                                    search_account = find_user(search_account)
+                                    print(f"Username: {search_account.username}")
+                                    print('-' * 20)
+
+                                    print(f"Account name: {search_account.account}")
+
+                                    print('-' * 20)
+
+                                    print(f"Password: {search_account.password}")
+
+                            else:
+                                    print("Account does not exist")
+
+                    elif short_code == "ex":
+                            print("Bye .......")
+                            break
+                    else:
+                            print("Invalid input. Please try again")
+            break
+if __name__ == '__main__':
+    main()
