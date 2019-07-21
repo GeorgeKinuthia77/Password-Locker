@@ -78,3 +78,29 @@ def main():
 
             else:
                 print("Invalid username or password!")
+        while access_pass == login_pass:
+                    print("Use these short codes : cc - create  new account credentials, dc - display account credentials, fc -find an account's credentials, ex -exit Password Locker, del - delete account credentials ")
+
+                    short_code = input().lower()
+
+                    if short_code == 'cc':
+                            print("New Account")
+                            print("*"*50)
+
+                            while True:
+                                print ("Which account is this?...")
+                                account = input()
+
+                                print("What's your username? ...")
+                                username = input()
+
+                                print("Would you like a generated password or a customised one? Type c for customised and g for generated...")
+
+                                pass_choice = input().lower()
+
+                                if pass_choice == 'c':
+                                    print("Enter a password here..")
+                                    custom_pass = input()
+
+                                    gene=custom_pass
+        
