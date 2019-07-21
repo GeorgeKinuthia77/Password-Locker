@@ -47,3 +47,14 @@ class TestUser(unittest.TestCase):
         test_user = User("John Wick", "Facebook", "ptex")
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
+
+    def test_delete_user(self):
+        '''
+        test_delete_user to test if we can remove a user from object user_list
+        '''
+        self.new_user.save_user()
+        test_user = User("John Wick", "Facebook", "ptex")
+        test_user.save_user()
+
+        self.new_user.delete_user()
+        self.assertEqual(len(User.user_list),1)
