@@ -36,7 +36,7 @@ def find_user(account):
     Function that finds a user by account name and returns the  user
     '''
     return User.find_by_account(account)
-    def check_existing_user(account):
+def check_existing_user(account):
     '''
     Function that checks if a user exists with that account and returns Boolean
     '''
@@ -53,3 +53,28 @@ def save_paswad(credentials):
     Function that saves new password
     '''
     return credentials.save_password()
+
+def generate_paswad():
+    '''
+    Function that generates a password for the user
+    '''
+    return Credentials.generatePassword()
+
+def main():
+    print("Hello! Welcome.Kindly sign up below")
+    while True:
+        access_name = input("Password Locker Username: ").lower()
+        if access_name == '':
+            print("Invalid username")
+        else:
+            access_pass = getpass("Password Locker sign up key:  ")
+            print("Log in using your sign-up credentials")
+            login_name = input("Log in with your username: ").lower()
+            login_pass = getpass("Please enter registered password: ")
+            if access_pass == login_pass:
+                print('\n')
+                print(f"Welcome back {access_name}. What would you like to do?")
+                print('\n')
+
+            else:
+                print("Invalid username or password!")
