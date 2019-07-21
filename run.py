@@ -36,3 +36,20 @@ def find_user(account):
     Function that finds a user by account name and returns the  user
     '''
     return User.find_by_account(account)
+    def check_existing_user(account):
+    '''
+    Function that checks if a user exists with that account and returns Boolean
+    '''
+    return User.user_exists(account)
+
+def display_users():
+    '''
+    Function that returns all saved users
+    '''
+    return User.display_users()
+
+def save_paswad(credentials):
+    '''
+    Function that saves new password
+    '''
+    return credentials.save_password()
