@@ -76,3 +76,9 @@ class Credentials:
         chars = 'abcdefghijklmnopqrstuvwxyzABCDEFJHIJKLMNOPQRSTUVWXYZ1234567890'
         new_pass = ''.join(random.sample(chars, 5))
         return new_pass
+
+    def save_paswad(self):
+        '''
+        save_user method saves user names into the user list
+        '''
+        User.user_list.append(self)
