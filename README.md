@@ -20,6 +20,14 @@ Python 3.6
 |   Delete credentials      |Choose delete credentials     |     Credentials deleted   |
 |   Exit app     |select exit app   |   app closes     |
 
+## Known Bugs
+No known bugs
+
+## Contacts
+Feel free to reach out to me
+E-mail:Gnjoro077@gmail.com
+
+Phone number :0704282877
 
 
 # Password-Locker
