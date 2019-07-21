@@ -70,3 +70,13 @@ class TestUser(unittest.TestCase):
 
         found_user = User.find_by_account("Facebook")
         self.assertEqual(found_user.account, test_user.account)
+
+    def test_user_exists(self):
+        '''
+        test to check if we can return a Boolean if we don't find the user
+        '''
+        self.new_user.save_user()
+        test_user = User("John Wick", "Facebook", "ptex")
+        test_user.save_user()
+        user_exists = User.user_exists("Facebook")
+        self.assertTrue(user_exists)
