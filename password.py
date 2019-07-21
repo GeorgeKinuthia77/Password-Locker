@@ -71,3 +71,8 @@ class Credentials:
     def __init__(self, account, password):
         self.paswad = paswad
         self.account = account
+
+    def generatePaswad():
+        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFJHIJKLMNOPQRSTUVWXYZ1234567890'
+        new_pass = ''.join(random.sample(chars, 5))
+        return new_pass
