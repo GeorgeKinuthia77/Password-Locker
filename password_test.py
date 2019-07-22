@@ -1,93 +1,89 @@
 import unittest
 from password import User
-from password import Credentials
-
+from password import Credentilas
 
 class TestUser(unittest.TestCase):
-    '''
-    Test class that defines tests for User class behaviours
-    Args:
-        unittest.TestCase: TestCase class that helps create test cases
-    '''
+  """
+  Test class that defines  test cases for user class
+  """
+  def setUp(self):
+    """
+    method to run before each test
+    """
+    self.new_user = User("George", "ptex")
+  def tearDown(self):
+    """
+    tearDown method that does clean up after each case has run.
+    """
+    User.user_list = []
 
-    def setUp(self):
-        '''
-        Set up method to run before each test instance
-        '''
-        self.new_user = User("GeorgeKinuthia77","Instagram","ptex")# Instance of class User
+  def test_init(self):
+    """
+    test_init test case to test if the object is initialized properly
+    """
+    self.assertEqual(self.new_user.username, "George")
+    self.assertEqual(self.new_user.password, "ptex")
 
-    def test_init(self):
-        '''
-        Test case to test if object is initialised properly
-        '''
-        self.assertEqual(self.new_user.username, "GeorgeKinuthia77")
-        self.assertEqual(self.new_user.account, "Instagram")
-        self.assertEqual(self.new_user.password, "ptex")
+  def test_save_user(self):
+    """
+    saving user details
+    """
+    self.new_user.save_user()
+    self.assertEqual(len(User.user_list), 1)
 
-        def test_save_user(self):
-        '''
-        test_save_user test case to test if the user object is saved to the user_list
-        '''
-        self.new_user.save_user()
-        self.assertEqual(len(User.user_list),1)
+class TestCredentials(unittest.TestCase):
+  def setUp(self):
+    """
+    method to run before each test
+    """
+    self.new_account = Credentilas("Fly","fly123","123")
 
+  def tearDown(self):
+    """
+    tearDown method that does clean up after each case has run.
+    """
+    Credentilas.account_list = []
 
-    def tearDown(self):
-        '''
-        tearDown does clear up after each test case has run
-        '''
-        User.user_list = []
+  def test_init(self):
+    """
+    test_init test case to test if the object is initialized properly
+    """
+    self.assertEqual(self.new_account.sitename, "Fly")
+    self.assertEqual(self.new_account.accountname, "fly123")
+    self.assertEqual(self.new_account.password, "123")
 
-    def test_save_multiple_users(self):
-        '''
-        test_save_multiple_users to check if we can save multiple users in our user_list
-        '''
+  def test_save_account(self):
+    """
+    saving account details
+    """
+    self.new_account.save_account()
+    self.assertEqual(len(Credentilas.account_list), 1)
 
-        self.new_user.save_user()
-        test_user = User("John Wick", "Facebook", "ptex")
-        test_user.save_user()
-        self.assertEqual(len(User.user_list),2)
+  def test_save_many_accounts(self):
+    """
+    saving multiple accounts
+    """
+    self.new_account.save_account()
+    test_account = Credentilas("Fly", "fly123", "123")
+    test_account.save_account()
+    self.assertEqual(len(Credentilas.account_list),2)
 
-    def test_delete_user(self):
-        '''
-        test_delete_user to test if we can remove a user from object user_list
-        '''
-        self.new_user.save_user()
-        test_user = User("John Wick", "Facebook", "ptex")
-        test_user.save_user()
+  def test_delete_account(self):
+    """
+    deleting account details
+    """
+    self.new_account.save_account()
+    test_account = Credentilas("Fly", "fly123", "123")
+    test_account.save_account()
 
-        self.new_user.delete_user()
-        self.assertEqual(len(User.user_list),1)
+    self.new_account.delete_account()
+    self.assertEqual(len(Credentilas.account_list),1)
 
-    def test_find_user_by_account(self):
-        '''
-        test to check if we can find a user by account
-        '''
-
-        self.new_user.save_user()
-        test_user = User("John Wick", "Facebook", "ptex")
-        test_user.save_user()
-
-        found_user = User.find_by_account("Facebook")
-        self.assertEqual(found_user.account, test_user.account)
-
-    def test_user_exists(self):
-        '''
-        test to check if we can return a Boolean if we don't find the user
-        '''
-        self.new_user.save_user()
-        test_user = User("John Wick", "Facebook", "ptex")
-        test_user.save_user()
-        user_exists = User.user_exists("Facebook")
-        self.assertTrue(user_exists)
-
-
-    def test_display_all_users(self):
-        '''
-        method that returns a list of all users saved
-        '''
-        self.assertEqual(User.display_users(),User.user_list)
-
+  def test_display_credentials(self):
+    """
+    displaying credentials
+    """
+    self.assertEqual(Credentilas.display_account(),Credentilas.account_list)
 
 if __name__ == '__main__':
-    unittest.main()
+  unittest.main()
